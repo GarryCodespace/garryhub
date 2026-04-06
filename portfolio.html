@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio for Garry Yuan">
+    <title>Garry Yuan | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body.portfolio-page-view {
+            background:
+                radial-gradient(circle at top center, rgba(223, 185, 229, 0.1), transparent 20%),
+                linear-gradient(180deg, #171417 0%, #111013 100%);
+        }
+
+        .portfolio-page-view .page-frame {
+            background: linear-gradient(180deg, rgba(17, 15, 18, 0.94), rgba(15, 13, 16, 0.98));
+            border-color: rgba(230, 191, 234, 0.06);
+        }
+
+        .portfolio-page-view .site-nav {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(180deg, rgba(17, 15, 18, 0.96), rgba(17, 15, 18, 0.72) 70%, rgba(17, 15, 18, 0));
+            padding-bottom: 20px;
+        }
+
+        .portfolio-page-view .content {
+            max-width: 1320px;
+            padding-top: 8px;
+        }
+
+        .portfolio-shell {
+            width: min(100%, 1360px);
+        }
+
+        .portfolio-doc-links {
+            max-width: 520px;
+            margin: 0 auto 34px;
+        }
+
+        .portfolio-page-view .doc-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(230, 191, 234, 0.16);
+            border-radius: 999px;
+            padding: 16px 24px;
+        }
+
+        .portfolio-page-view .card-title {
+            font-size: 1.02rem;
+            font-family: "Instrument Sans", Arial, sans-serif;
+        }
+
+        .portfolio-page-view .card-copy {
+            font-size: 0.9rem;
+        }
+
+        .portfolio-gallery {
+            gap: 44px;
+        }
+
+        .portfolio-page {
+            padding-bottom: 26px;
+        }
+
+        .portfolio-page canvas {
+            width: min(100%, 1120px);
+            background: #f7f7f5;
+            border-radius: 22px;
+            box-shadow:
+                0 28px 80px rgba(0, 0, 0, 0.38),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-loading {
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body class="portfolio-page-view">
+    <canvas id="particle-canvas"></canvas>
+    <div class="page-shell">
+        <div class="page-frame">
+            <header class="site-nav">
+                <a class="site-brand" href="index.html">
+                    <span class="brand-orb" aria-hidden="true"></span>
+                    <span>Garry Yuan</span>
+                </a>
+                <nav class="nav-center" aria-label="Primary">
+                    <a href="index.html">About</a>
+                    <a href="portfolio.html" aria-current="page">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="nav-right" aria-label="Social links">
+                    <a class="icon-link" href="mailto:garryyuan1@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8-.25L12 11.72l7.2-5.22H4.8Zm14.7 11V8.24l-6.98 5.06a.9.9 0 0 1-1.04 0L4.5 8.24v9.26h15Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://x.com/im_garry_yuan?s=21" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.02 6.88L22 22h-5.53l-4.33-5.66L7.2 22H4.44l6.44-7.35L2 2h5.67l3.91 5.18L18.244 2Zm-.97 18.35h1.52L6.85 3.56H5.2l12.07 16.79Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://www.linkedin.com/in/garry-yuan-b27a31255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.25 2.25 0 1 0 5.3 7.5 2.25 2.25 0 0 0 5.25 3ZM20.45 13.02c0-3.46-1.85-5.07-4.32-5.07-1.99 0-2.88 1.1-3.38 1.87V8.5H9.38c.04.88 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.89-1.41 1.94-1.41 1.37 0 1.92 1.03 1.92 2.55V20h3.38v-6.98Z"></path></svg>
+                    </a>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="portfolio-shell">
+                    <section class="portfolio-gallery" id="portfolio-gallery" aria-label="Portfolio pages">
+                        <div class="portfolio-loading">Loading portfolio pages…</div>
+                    </section>
+                    <noscript>
+                        <div class="panel">JavaScript is required to render the portfolio pages inline. You can still <a href="Garry-Yuan-Engineering-Portfolio.pdf" target="_blank" rel="noopener noreferrer">open the PDF directly</a>.</div>
+                    </noscript>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="particles.js"></script>
+    <script type="module">
+        import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs";
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs";
+
+        const gallery = document.getElementById("portfolio-gallery");
+        const portfolioUrl = "Garry-Yuan-Engineering-Portfolio.pdf";
+
+        async function renderPortfolio() {
+            try {
+                const loadingTask = pdfjsLib.getDocument(portfolioUrl);
+                const pdf = await loadingTask.promise;
+                gallery.innerHTML = "";
+
+                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+                    const page = await pdf.getPage(pageNumber);
+                    const viewport = page.getViewport({ scale: 1 });
+                    const containerWidth = Math.min(gallery.clientWidth || 980, 980);
+                    const scale = containerWidth / viewport.width;
+                    const scaledViewport = page.getViewport({ scale });
+
+                    const pageWrap = document.createElement("section");
+                    pageWrap.className = "portfolio-page";
+
+                    const canvas = document.createElement("canvas");
+                    const context = canvas.getContext("2d");
+                    canvas.width = Math.floor(scaledViewport.width * window.devicePixelRatio);
+                    canvas.height = Math.floor(scaledViewport.height * window.devicePixelRatio);
+                    canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
+                    canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
+                    context.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+
+                    await page.render({
+                        canvasContext: context,
+                        viewport: scaledViewport
+                    }).promise;
+
+                    pageWrap.appendChild(canvas);
+                    gallery.appendChild(pageWrap);
+                }
+            } catch (error) {
+                gallery.innerHTML = `<div class="panel">Could not render the portfolio inline. You can still <a href="${portfolioUrl}" target="_blank" rel="noopener noreferrer">open the PDF directly</a>.</div>`;
+                console.error(error);
+            }
+        }
+
+        renderPortfolio();
+        window.addEventListener("resize", () => {
+            clearTimeout(window.__portfolioResizeTimer);
+            window.__portfolioResizeTimer = setTimeout(renderPortfolio, 180);
+        });
+    </script>
+</body>
+</html>

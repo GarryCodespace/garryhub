@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Garry Yuan">
+    <title>Garry Yuan | Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body.contact-page {
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.11) 1px, transparent 1.6px) 0 0 / 28px 28px,
+                linear-gradient(180deg, #151313 0%, #111010 100%);
+        }
+
+        .contact-page .page-frame {
+            background: rgba(20, 18, 18, 0.88);
+        }
+
+        .contact-layout {
+            width: min(100%, 930px);
+            margin: 54px auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        .contact-panel {
+            width: min(100%, 640px);
+        }
+
+        .contact-heading {
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            margin-bottom: 8px;
+        }
+
+        .contact-intro {
+            color: var(--muted);
+            font-size: 1.12rem;
+            margin-bottom: 26px;
+        }
+
+        .contact-table {
+            display: grid;
+            gap: 18px;
+        }
+
+        .contact-row {
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
+            gap: 26px;
+            align-items: baseline;
+        }
+
+        .contact-key {
+            color: rgba(236, 230, 230, 0.55);
+            font-size: 1.18rem;
+        }
+
+        .contact-value {
+            min-width: 0;
+        }
+
+        .contact-value a {
+            display: inline-block;
+            color: var(--text);
+            font-size: 1.24rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(236, 230, 230, 0.28);
+            padding-bottom: 3px;
+        }
+
+        .contact-value a:hover {
+            color: var(--accent-strong);
+            border-bottom-color: rgba(239, 208, 246, 0.55);
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 34px;
+            color: rgba(236, 230, 230, 0.55);
+            font-size: 1.28rem;
+        }
+
+        .home-link:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 720px) {
+            .contact-layout {
+                margin-top: 26px;
+            }
+
+            .contact-panel {
+                width: 100%;
+            }
+
+            .contact-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .contact-key {
+                font-size: 1rem;
+            }
+
+            .contact-value a {
+                font-size: 1.08rem;
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+<body class="contact-page">
+    <div class="page-shell">
+        <div class="page-frame">
+            <header class="site-nav">
+                <a class="site-brand" href="index.html">
+                    <span class="brand-orb" aria-hidden="true"></span>
+                    <span>Garry Yuan</span>
+                </a>
+                <nav class="nav-center" aria-label="Primary">
+                    <a href="index.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html" aria-current="page">Contact</a>
+                </nav>
+                <div class="nav-right" aria-label="Social links">
+                    <a class="icon-link" href="mailto:garryyuan1@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8-.25L12 11.72l7.2-5.22H4.8Zm14.7 11V8.24l-6.98 5.06a.9.9 0 0 1-1.04 0L4.5 8.24v9.26h15Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://x.com/im_garry_yuan?s=21" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.02 6.88L22 22h-5.53l-4.33-5.66L7.2 22H4.44l6.44-7.35L2 2h5.67l3.91 5.18L18.244 2Zm-.97 18.35h1.52L6.85 3.56H5.2l12.07 16.79Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://www.linkedin.com/in/garry-yuan-b27a31255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.25 2.25 0 1 0 5.3 7.5 2.25 2.25 0 0 0 5.25 3ZM20.45 13.02c0-3.46-1.85-5.07-4.32-5.07-1.99 0-2.88 1.1-3.38 1.87V8.5H9.38c.04.88 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.89-1.41 1.94-1.41 1.37 0 1.92 1.03 1.92 2.55V20h3.38v-6.98Z"></path></svg>
+                    </a>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="contact-layout">
+                    <div class="contact-panel">
+                        <h1 class="contact-heading">Collaboration</h1>
+                        <p class="contact-intro">Feel free to reach out through any of these.</p>
+
+                        <div class="contact-table">
+                            <div class="contact-row">
+                                <div class="contact-key">Email</div>
+                                <div class="contact-value"><a href="mailto:garryyuan1@gmail.com">garryyuan1@gmail.com</a></div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-key">X</div>
+                                <div class="contact-value"><a href="https://x.com/im_garry_yuan?s=21" target="_blank" rel="noopener noreferrer">@im_garry_yuan</a></div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-key">LinkedIn</div>
+                                <div class="contact-value"><a href="https://www.linkedin.com/in/garry-yuan-b27a31255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">garry-yuan-b27a31255</a></div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-key">Discord</div>
+                                <div class="contact-value"><a href="https://discord.gg/a7WT3VFbVR" target="_blank" rel="noopener noreferrer">Join Discord</a></div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-key">Instagram</div>
+                                <div class="contact-value"><a href="https://www.instagram.com/yuan_zi_qin?igsh=aThqYWVwcWcxOHYz&utm_source=qr" target="_blank" rel="noopener noreferrer">@yuan_zi_qin</a></div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-key">YouTube</div>
+                                <div class="contact-value"><a href="https://youtube.com/@garry-build?si=_yG92qHAvY8SOeQi" target="_blank" rel="noopener noreferrer">@garry-build</a></div>
+                            </div>
+                        </div>
+
+                        <a class="home-link" href="index.html">Home</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
