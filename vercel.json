@@ -1,15 +1,16 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
+      "source": "/",
+      "destination": "/index.html"
+    },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/portfolio",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
     }
   ]
 }
