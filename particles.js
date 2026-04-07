@@ -8,9 +8,9 @@
     let width = 0;
     let height = 0;
     let points = [];
-    const count = prefersReducedMotion ? 70 : 180;
-    const connectionDistance = prefersReducedMotion ? 170 : 250;
-    const lineAlphaMax = prefersReducedMotion ? 0.12 : 0.22;
+    const count = prefersReducedMotion ? 10 : 18;
+    const connectionDistance = prefersReducedMotion ? 72 : 96;
+    const lineAlphaMax = prefersReducedMotion ? 0.05 : 0.08;
     const mouse = {
         x: -9999,
         y: -9999,
@@ -28,8 +28,8 @@
         points = Array.from({ length: count }, () => ({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * (prefersReducedMotion ? 0.06 : 0.18),
-            vy: (Math.random() - 0.5) * (prefersReducedMotion ? 0.06 : 0.18)
+            vx: (Math.random() - 0.5) * (prefersReducedMotion ? 0.025 : 0.055),
+            vy: (Math.random() - 0.5) * (prefersReducedMotion ? 0.025 : 0.055)
         }));
     }
 
@@ -41,19 +41,19 @@
                 const dx = point.x - mouse.x;
                 const dy = point.y - mouse.y;
                 const dist = Math.hypot(dx, dy);
-                const influenceRadius = 220;
+                const influenceRadius = 82;
 
                 if (dist > 0 && dist < influenceRadius) {
-                    const force = (1 - dist / influenceRadius) * 0.8;
+                    const force = (1 - dist / influenceRadius) * 0.08;
                     point.vx += (dx / dist) * force;
                     point.vy += (dy / dist) * force;
                 }
             }
 
-            point.vx *= 0.985;
-            point.vy *= 0.985;
-            point.vx = Math.max(Math.min(point.vx, 1.35), -1.35);
-            point.vy = Math.max(Math.min(point.vy, 1.35), -1.35);
+            point.vx *= 0.988;
+            point.vy *= 0.988;
+            point.vx = Math.max(Math.min(point.vx, 0.24), -0.24);
+            point.vy = Math.max(Math.min(point.vy, 0.24), -0.24);
             point.x += point.vx;
             point.y += point.vy;
 
@@ -72,7 +72,7 @@
                 const dist = Math.hypot(dx, dy);
                 if (dist < connectionDistance) {
                     const alpha = (1 - dist / connectionDistance) * lineAlphaMax;
-                    ctx.strokeStyle = `rgba(223, 185, 229, ${alpha})`;
+                    ctx.strokeStyle = `rgba(188, 145, 200, ${alpha})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
@@ -83,11 +83,11 @@
         }
 
         for (const point of points) {
-            ctx.fillStyle = "rgba(223, 185, 229, 0.86)";
+            ctx.fillStyle = "rgba(188, 145, 200, 0.42)";
             ctx.beginPath();
-            ctx.moveTo(point.x, point.y - 4.8);
-            ctx.lineTo(point.x - 4.2, point.y + 3.2);
-            ctx.lineTo(point.x + 4.2, point.y + 3.2);
+            ctx.moveTo(point.x, point.y - 2.6);
+            ctx.lineTo(point.x - 2.3, point.y + 1.9);
+            ctx.lineTo(point.x + 2.3, point.y + 1.9);
             ctx.closePath();
             ctx.fill();
         }
