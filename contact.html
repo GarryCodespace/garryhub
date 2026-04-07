@@ -12,52 +12,58 @@
     <style>
         body.contact-page {
             background:
-                radial-gradient(circle, rgba(195, 176, 205, 0.22) 1px, transparent 1.7px) 0 0 / 28px 28px,
-                linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+                radial-gradient(circle, rgba(195, 176, 205, 0.24) 1px, transparent 1.7px) 0 0 / 40px 40px,
+                linear-gradient(180deg, #fdfcf9 0%, #fbfaf6 100%);
         }
 
         .contact-page .page-frame {
             background: transparent;
         }
 
+        .contact-page .site-nav {
+            padding-bottom: 0;
+        }
+
         .contact-layout {
-            width: min(100%, 930px);
-            margin: 54px auto 0;
+            width: min(100%, 980px);
+            margin: 24px auto 0;
             display: grid;
             grid-template-columns: 1fr;
             justify-items: center;
         }
 
         .contact-panel {
-            width: min(100%, 640px);
+            width: min(100%, 520px);
         }
 
         .contact-heading {
-            font-size: clamp(2.1rem, 4vw, 3rem);
-            margin-bottom: 8px;
+            font-size: clamp(2.15rem, 3.6vw, 3rem);
+            font-weight: 500;
+            line-height: 1.02;
+            margin-bottom: 22px;
         }
 
         .contact-intro {
             color: var(--muted);
-            font-size: 1.12rem;
-            margin-bottom: 26px;
+            font-size: 0.95rem;
+            margin-bottom: 36px;
         }
 
         .contact-table {
             display: grid;
-            gap: 18px;
+            gap: 20px;
         }
 
         .contact-row {
             display: grid;
-            grid-template-columns: 120px minmax(0, 1fr);
+            grid-template-columns: 96px minmax(0, 1fr);
             gap: 26px;
             align-items: baseline;
         }
 
         .contact-key {
             color: rgba(78, 67, 83, 0.68);
-            font-size: 1.18rem;
+            font-size: 0.96rem;
         }
 
         .contact-value {
@@ -67,10 +73,10 @@
         .contact-value a {
             display: inline-block;
             color: #241f24;
-            font-size: 1.24rem;
+            font-size: 0.98rem;
             font-weight: 600;
             border-bottom: 1px solid rgba(132, 111, 141, 0.28);
-            padding-bottom: 3px;
+            padding-bottom: 4px;
         }
 
         .contact-value a:hover {
@@ -80,9 +86,11 @@
 
         .home-link {
             display: inline-block;
-            margin-top: 34px;
-            color: rgba(78, 67, 83, 0.68);
-            font-size: 1.28rem;
+            margin-top: 36px;
+            margin-left: 50%;
+            transform: translateX(-4%);
+            color: rgba(132, 125, 136, 0.5);
+            font-size: 1.1rem;
         }
 
         .home-link:hover {
@@ -91,16 +99,25 @@
 
         @media (max-width: 720px) {
             .contact-layout {
-                margin-top: 26px;
+                margin-top: 22px;
             }
 
             .contact-panel {
                 width: 100%;
             }
 
+            .contact-heading {
+                font-size: 2rem;
+                margin-bottom: 16px;
+            }
+
+            .contact-intro {
+                margin-bottom: 24px;
+            }
+
             .contact-row {
                 grid-template-columns: 1fr;
-                gap: 6px;
+                gap: 8px;
             }
 
             .contact-key {
@@ -110,6 +127,11 @@
             .contact-value a {
                 font-size: 1.08rem;
                 word-break: break-word;
+            }
+
+            .home-link {
+                margin-left: 0;
+                transform: none;
             }
         }
     </style>

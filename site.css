@@ -44,6 +44,17 @@ a:hover {
     color: var(--accent-strong);
 }
 
+.section a {
+    text-decoration: underline;
+    text-decoration-color: rgba(132, 111, 141, 0.34);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+}
+
+.section a:hover {
+    text-decoration-color: rgba(169, 124, 184, 0.55);
+}
+
 #particle-canvas {
     position: fixed;
     inset: 0;
@@ -183,6 +194,32 @@ a:hover {
 .content-column {
     width: min(100%, var(--content-width));
     margin: 0 auto;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, var(--content-width)) 320px;
+    gap: 64px;
+    align-items: start;
+    justify-content: center;
+}
+
+.about-aside {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 16px 36px rgba(116, 94, 124, 0.12);
+}
+
+.about-page .content {
+    padding-top: 52px;
 }
 
 .rule {
@@ -429,6 +466,15 @@ a:hover {
         gap: 10px;
     }
 
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .about-aside {
+        justify-content: center;
+    }
+
     .pdf-frame {
         height: 540px;
     }
@@ -486,6 +532,10 @@ a:hover {
 
     .content-column {
         width: 100%;
+    }
+
+    .about-photo {
+        max-width: min(100%, 320px);
     }
 
     .contact-card {
