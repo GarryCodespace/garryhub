@@ -8,12 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="site.css">
     <style>
         body.contact-page {
             background:
                 radial-gradient(circle, rgba(195, 176, 205, 0.24) 1px, transparent 1.7px) 0 0 / 40px 40px,
                 linear-gradient(180deg, #fdfcf9 0%, #fbfaf6 100%);
+        }
+
+        html[data-theme="dark"] body.contact-page {
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.11) 1px, transparent 1.6px) 0 0 / 28px 28px,
+                linear-gradient(180deg, #151313 0%, #111010 100%);
         }
 
         .contact-page .page-frame {
@@ -66,6 +73,10 @@
             font-size: 0.96rem;
         }
 
+        html[data-theme="dark"] .contact-key {
+            color: rgba(236, 230, 230, 0.55);
+        }
+
         .contact-value {
             min-width: 0;
         }
@@ -77,6 +88,11 @@
             font-weight: 600;
             border-bottom: 1px solid rgba(132, 111, 141, 0.28);
             padding-bottom: 4px;
+        }
+
+        html[data-theme="dark"] .contact-value a {
+            color: var(--text);
+            border-bottom: 1px solid rgba(236, 230, 230, 0.28);
         }
 
         .contact-value a:hover {
@@ -91,6 +107,10 @@
             transform: translateX(-4%);
             color: rgba(132, 125, 136, 0.5);
             font-size: 1.1rem;
+        }
+
+        html[data-theme="dark"] .home-link {
+            color: rgba(236, 230, 230, 0.55);
         }
 
         .home-link:hover {
@@ -141,7 +161,11 @@
         <div class="page-frame">
             <header class="site-nav">
                 <a class="site-brand" href="index.html">
-                    <span class="brand-orb" aria-hidden="true"></span>
+                    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+                        <circle cx="16" cy="16" r="15" />
+                        <path d="M7 12.25 12.1 9l3.9 5.15L20.7 11l4.3 5.75" />
+                        <path d="M7 20.25 12.1 17l3.9 5.15L20.7 19l4.3 5.75" />
+                    </svg>
                     <span>Garry Yuan</span>
                 </a>
                 <nav class="nav-center" aria-label="Primary">

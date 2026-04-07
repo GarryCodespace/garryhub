@@ -13,6 +13,19 @@
     --shadow: 0 20px 52px rgba(116, 94, 124, 0.08);
 }
 
+html[data-theme="dark"] {
+    --bg: #121111;
+    --panel: rgba(18, 16, 19, 0.78);
+    --panel-strong: rgba(24, 21, 27, 0.92);
+    --line: rgba(230, 191, 234, 0.2);
+    --line-soft: rgba(230, 191, 234, 0.08);
+    --text: #ece6e6;
+    --muted: #beb5bb;
+    --accent: #dfb9e5;
+    --accent-strong: #efd0f6;
+    --shadow: 0 18px 60px rgba(0, 0, 0, 0.34);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -33,6 +46,13 @@ body {
     font-family: "Cormorant Garamond", Georgia, serif;
     line-height: 1.48;
     overflow-x: hidden;
+}
+
+html[data-theme="dark"] body {
+    background:
+        radial-gradient(circle at top left, rgba(107, 63, 112, 0.15), transparent 24%),
+        radial-gradient(circle at 85% 20%, rgba(105, 79, 112, 0.14), transparent 20%),
+        linear-gradient(180deg, #171515 0%, var(--bg) 100%);
 }
 
 a {
@@ -65,6 +85,10 @@ a:hover {
     opacity: 0.22;
 }
 
+html[data-theme="dark"] #particle-canvas {
+    opacity: 0.4;
+}
+
 .page-shell {
     position: relative;
     z-index: 1;
@@ -92,6 +116,11 @@ a:hover {
     pointer-events: none;
 }
 
+html[data-theme="dark"] .page-frame::before {
+    background:
+        radial-gradient(circle at top center, rgba(223, 185, 229, 0.08), transparent 18%);
+}
+
 .site-nav {
     position: relative;
     z-index: 2;
@@ -111,15 +140,31 @@ a:hover {
     letter-spacing: 0.02em;
 }
 
-.brand-orb {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), transparent 26%),
-        radial-gradient(circle at center, #3c363d 32%, #241f24 70%, #171417 100%);
-    border: 1px solid rgba(61, 52, 64, 0.12);
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+.brand-mark {
+    width: 28px;
+    height: 28px;
+    display: block;
+    filter: drop-shadow(0 6px 12px rgba(116, 94, 124, 0.08));
+}
+
+.brand-mark circle {
+    fill: #24160b;
+}
+
+.brand-mark path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.45;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+html[data-theme="dark"] .brand-mark circle {
+    fill: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] .brand-mark path {
+    stroke: #1b161b;
 }
 
 .nav-center,
@@ -177,6 +222,11 @@ a:hover {
     background: rgba(255, 255, 255, 0.45);
 }
 
+html[data-theme="dark"] .icon-link {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.02);
+}
+
 .icon-link svg {
     width: 19px;
     height: 19px;
@@ -224,6 +274,10 @@ a:hover {
     object-fit: cover;
     object-position: center center;
     box-shadow: 0 16px 36px rgba(116, 94, 124, 0.12);
+}
+
+html[data-theme="dark"] .about-photo {
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 
 .about-page .content {
@@ -307,12 +361,20 @@ a:hover {
     color: rgba(111, 102, 114, 0.55);
 }
 
+html[data-theme="dark"] .bullets li::marker {
+    color: rgba(236, 230, 230, 0.4);
+}
+
 .panel {
     background: rgba(255, 255, 255, 0.62);
     border: 1px solid var(--line);
     border-radius: 18px;
     padding: 18px 20px;
     margin-top: 18px;
+}
+
+html[data-theme="dark"] .panel {
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .panel h3 {
@@ -357,6 +419,10 @@ a:hover {
     box-shadow: 0 18px 40px rgba(116, 94, 124, 0.12);
 }
 
+html[data-theme="dark"] .portfolio-page canvas {
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+}
+
 .portfolio-loading {
     text-align: center;
     color: var(--muted);
@@ -375,11 +441,22 @@ a:hover {
     transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
+html[data-theme="dark"] .doc-card,
+html[data-theme="dark"] .contact-card {
+    background: rgba(255, 255, 255, 0.025);
+}
+
 .doc-card:hover,
 .contact-card:hover {
     transform: translateY(-2px);
     border-color: rgba(169, 124, 184, 0.3);
     background: rgba(255, 255, 255, 0.74);
+}
+
+html[data-theme="dark"] .doc-card:hover,
+html[data-theme="dark"] .contact-card:hover {
+    border-color: rgba(239, 208, 246, 0.38);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .card-title {
@@ -403,6 +480,10 @@ a:hover {
     margin-top: 18px;
 }
 
+html[data-theme="dark"] .pdf-frame {
+    background: rgba(255, 255, 255, 0.03);
+}
+
 .contact-card {
     display: grid;
     grid-template-columns: 62px 1fr;
@@ -419,6 +500,11 @@ a:hover {
     justify-content: center;
     border: 1px solid rgba(164, 132, 178, 0.18);
     background: rgba(255, 255, 255, 0.66);
+}
+
+html[data-theme="dark"] .contact-icon {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .contact-icon svg {
