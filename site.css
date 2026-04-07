@@ -209,12 +209,20 @@ a:hover {
     justify-content: flex-end;
 }
 
+.about-photo-frame {
+    width: 100%;
+    max-width: 252px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
 .about-photo {
     width: 100%;
-    max-width: 320px;
-    height: auto;
+    height: 100%;
     display: block;
-    border-radius: 6px;
+    object-fit: cover;
+    object-position: center center;
     box-shadow: 0 16px 36px rgba(116, 94, 124, 0.12);
 }
 
@@ -473,6 +481,10 @@ a:hover {
 
     .about-aside {
         justify-content: center;
+    }
+
+    .about-photo-frame {
+        max-width: min(100%, 252px);
     }
 
     .pdf-frame {
