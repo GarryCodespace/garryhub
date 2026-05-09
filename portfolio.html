@@ -3,209 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio for Garry Yuan">
+    <meta name="description" content="Electrical engineering portfolio for Garry Yuan">
     <title>Garry Yuan | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="theme.js"></script>
     <link rel="stylesheet" href="site.css">
     <style>
         body.portfolio-page-view {
             background:
-                radial-gradient(circle at top center, rgba(223, 185, 229, 0.14), transparent 20%),
-                linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+                linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(252, 251, 248, 0.98) 100%);
         }
 
         html[data-theme="dark"] body.portfolio-page-view {
             background:
-                radial-gradient(circle at top center, rgba(223, 185, 229, 0.1), transparent 20%),
                 linear-gradient(180deg, #171417 0%, #111013 100%);
-        }
-
-        .portfolio-page-view .page-frame {
-            background: transparent;
-            border-color: transparent;
         }
 
         .portfolio-page-view .site-nav {
             position: sticky;
             top: 0;
             backdrop-filter: blur(10px);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.62) 70%, rgba(255, 255, 255, 0));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.74));
             padding-bottom: 20px;
         }
 
         html[data-theme="dark"] .portfolio-page-view .site-nav {
-            background: linear-gradient(180deg, rgba(17, 15, 18, 0.96), rgba(17, 15, 18, 0.72) 70%, rgba(17, 15, 18, 0));
+            background: linear-gradient(180deg, rgba(17, 15, 18, 0.96), rgba(17, 15, 18, 0.78));
         }
 
         .portfolio-page-view .content {
-            max-width: 1320px;
-            padding-top: 8px;
+            max-width: 1160px;
+            padding-top: 24px;
         }
 
         .portfolio-shell {
-            width: min(100%, 1360px);
-        }
-
-        .portfolio-doc-links {
-            max-width: 520px;
-            margin: 0 auto 34px;
-        }
-
-        .portfolio-page-view .doc-card {
-            background: rgba(255, 255, 255, 0.74);
-            border-color: rgba(164, 132, 178, 0.18);
-            border-radius: 999px;
-            padding: 16px 24px;
-        }
-
-        html[data-theme="dark"] .portfolio-page-view .doc-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(230, 191, 234, 0.16);
-        }
-
-        .portfolio-page-view .card-title {
-            font-size: 1.02rem;
-            font-family: "Instrument Sans", Arial, sans-serif;
-        }
-
-        .portfolio-page-view .card-copy {
-            font-size: 0.9rem;
-        }
-
-        .portfolio-gallery {
-            gap: 44px;
-        }
-
-        .portfolio-page {
-            padding-bottom: 26px;
-        }
-
-        .portfolio-page-shell {
-            width: min(100%, 1120px);
+            display: grid;
+            gap: 28px;
+            width: min(100%, 1100px);
             margin: 0 auto;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.76);
-            box-shadow:
-                0 20px 44px rgba(116, 94, 124, 0.12),
-                0 0 0 1px rgba(164, 132, 178, 0.12);
-            overflow: hidden;
         }
 
-        .portfolio-page canvas {
-            width: 100%;
-            background: #f7f7f5;
-            display: block;
-        }
-
-        html[data-theme="dark"] .portfolio-page-shell {
-            box-shadow:
-                0 28px 80px rgba(0, 0, 0, 0.38),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
-        }
-
-        .portfolio-loading {
-            padding: 50px 0;
-        }
-
-        .portfolio-page-placeholder {
+        .portfolio-hero {
             display: grid;
-            place-items: center;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 34px;
+            align-items: end;
+            padding-bottom: 26px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .portfolio-kicker {
             color: var(--muted);
-            font-size: 0.95rem;
-            font-family: "Instrument Sans", Arial, sans-serif;
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 247, 245, 0.92));
+            font: 700 0.78rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
-        .portfolio-projects {
-            display: grid;
-            gap: 24px;
-            margin-bottom: 34px;
+        .portfolio-title {
+            font-size: clamp(2.55rem, 6vw, 5.2rem);
+            line-height: 0.94;
+            max-width: 760px;
+            margin-bottom: 18px;
         }
 
-        .project-feature {
-            display: grid;
-            grid-template-columns: 360px minmax(0, 1fr);
-            gap: 22px;
-            align-items: start;
-            padding: 22px;
+        .portfolio-intro {
+            max-width: 760px;
+            color: var(--muted);
+            font: 500 clamp(1rem, 1.7vw, 1.14rem)/1.65 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .portfolio-contact-card {
             border: 1px solid var(--line);
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.68);
-            box-shadow: 0 18px 40px rgba(116, 94, 124, 0.08);
-        }
-
-        html[data-theme="dark"] .project-feature {
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
-        }
-
-        .project-feature img {
-            width: 100%;
-            display: block;
-            border-radius: 16px;
-            object-fit: cover;
-            box-shadow: 0 14px 28px rgba(116, 94, 124, 0.12);
-        }
-
-        html[data-theme="dark"] .project-feature img {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
-        }
-
-        .project-feature-copy {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.62);
+            padding: 18px;
             display: grid;
-            gap: 12px;
-        }
-
-        .project-feature-copy h2 {
-            font-size: 1.7rem;
-            line-height: 1.08;
-        }
-
-        .project-feature-copy p {
-            color: var(--muted);
-            font-size: 0.98rem;
+            gap: 10px;
             font-family: "Instrument Sans", Arial, sans-serif;
-            line-height: 1.65;
+            box-shadow: 0 16px 34px rgba(116, 94, 124, 0.08);
         }
 
-        .project-feature-actions {
+        html[data-theme="dark"] .portfolio-contact-card {
+            background: rgba(255, 255, 255, 0.035);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+        }
+
+        .portfolio-contact-card strong {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .portfolio-contact-card span,
+        .portfolio-contact-card a {
+            color: var(--muted);
+            font-size: 0.91rem;
+            line-height: 1.45;
+        }
+
+        .portfolio-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 4px;
+            margin-top: 8px;
         }
 
-        .project-feature-link {
-            display: inline-block;
-            padding: 12px 16px;
-            border-radius: 14px;
+        .portfolio-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 10px 14px;
             border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.82);
-            font: 600 0.92rem "Instrument Sans", Arial, sans-serif;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--text);
+            font: 700 0.88rem "Instrument Sans", Arial, sans-serif;
             transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
         }
 
-        html[data-theme="dark"] .project-feature-link {
-            background: rgba(255, 255, 255, 0.06);
+        html[data-theme="dark"] .portfolio-button {
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .project-feature-link:hover {
+        .portfolio-button:hover {
             transform: translateY(-1px);
-            border-color: rgba(169, 124, 184, 0.34);
-            background: rgba(255, 255, 255, 0.94);
+            border-color: rgba(169, 124, 184, 0.36);
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        html[data-theme="dark"] .project-feature-link:hover {
+        html[data-theme="dark"] .portfolio-button:hover {
             background: rgba(255, 255, 255, 0.1);
         }
 
-        @media (max-width: 860px) {
-            .project-feature {
+        .portfolio-timeline {
+            display: grid;
+            gap: 18px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            gap: 28px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.64);
+            box-shadow: 0 18px 36px rgba(116, 94, 124, 0.07);
+        }
+
+        html[data-theme="dark"] .project-card {
+            background: rgba(255, 255, 255, 0.035);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-index {
+            display: grid;
+            align-content: start;
+            gap: 18px;
+            min-height: 100%;
+        }
+
+        .project-number {
+            color: var(--accent-strong);
+            font: 700 0.82rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .project-meta-list {
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+            font: 600 0.86rem/1.35 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .project-visual {
+            border-radius: 8px;
+            border: 1px solid var(--line-soft);
+            background: rgba(255, 255, 255, 0.44);
+            min-height: 138px;
+            padding: 8px;
+            display: grid;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        html[data-theme="dark"] .project-visual {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .project-visual img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            display: block;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .project-visual-label {
+            color: var(--muted);
+            font: 700 0.74rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0 4px 4px;
+        }
+
+        .project-body {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project-heading {
+            display: grid;
+            gap: 8px;
+        }
+
+        .project-heading h2 {
+            font-size: clamp(1.52rem, 3vw, 2.25rem);
+            line-height: 1.06;
+        }
+
+        .project-heading p {
+            max-width: 710px;
+            color: var(--muted);
+            font: 500 0.98rem/1.62 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .project-columns {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .project-section {
+            display: grid;
+            align-content: start;
+            gap: 10px;
+        }
+
+        .project-section h3 {
+            color: var(--text);
+            font: 800 0.78rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .project-section ul {
+            display: grid;
+            gap: 8px;
+            padding-left: 1rem;
+            color: var(--text);
+            font: 500 0.91rem/1.45 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .project-section li::marker {
+            color: var(--accent-strong);
+        }
+
+        .skills-section,
+        .additional-section {
+            display: grid;
+            gap: 16px;
+            padding-top: 8px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: end;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.7rem, 4vw, 3rem);
+            line-height: 1;
+        }
+
+        .section-heading p {
+            max-width: 420px;
+            color: var(--muted);
+            font: 500 0.95rem/1.55 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .skill-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.54);
+            padding: 18px;
+            display: grid;
+            gap: 10px;
+        }
+
+        html[data-theme="dark"] .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .skill-card h3 {
+            font-size: 1.16rem;
+        }
+
+        .skill-card ul {
+            display: grid;
+            gap: 7px;
+            padding-left: 1rem;
+            color: var(--muted);
+            font: 500 0.9rem/1.45 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .additional-build {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 22px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.62);
+        }
+
+        html[data-theme="dark"] .additional-build {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .additional-build img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--line-soft);
+        }
+
+        .additional-copy {
+            display: grid;
+            align-content: center;
+            gap: 12px;
+        }
+
+        .additional-copy h3 {
+            font-size: clamp(1.45rem, 3vw, 2.1rem);
+            line-height: 1.08;
+        }
+
+        .additional-copy p {
+            color: var(--muted);
+            font: 500 0.96rem/1.62 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .portfolio-footer-note {
+            color: var(--muted);
+            font: 500 0.86rem/1.5 "Instrument Sans", Arial, sans-serif;
+            padding-bottom: 22px;
+        }
+
+        @media (max-width: 940px) {
+            .portfolio-hero,
+            .project-card,
+            .additional-build {
                 grid-template-columns: 1fr;
+            }
+
+            .project-index {
+                grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+                align-items: stretch;
+            }
+
+            .project-columns,
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .portfolio-page-view .content {
+                padding-top: 18px;
+            }
+
+            .portfolio-hero {
+                gap: 22px;
+            }
+
+            .project-card {
+                padding: 18px;
+            }
+
+            .project-index,
+            .project-columns,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                display: grid;
+                align-items: start;
             }
         }
     </style>
@@ -246,169 +446,419 @@
 
             <main class="content">
                 <div class="portfolio-shell">
-                    <section class="portfolio-projects" aria-label="Featured projects">
-                        <article class="project-feature">
+                    <section class="portfolio-hero" aria-labelledby="portfolio-title">
+                        <div>
+                            <p class="portfolio-kicker">Electrical Engineering Portfolio</p>
+                            <h1 class="portfolio-title" id="portfolio-title">Hands-on hardware, built and tested.</h1>
+                            <div class="portfolio-actions">
+                                <a class="portfolio-button" href="Garry-Yuan-Engineering-Portfolio.pdf" target="_blank" rel="noopener noreferrer">Open original PDF</a>
+                                <a class="portfolio-button" href="Garry-Yuan-Resume.pdf" target="_blank" rel="noopener noreferrer">Open resume</a>
+                            </div>
+                        </div>
+                        <aside class="portfolio-contact-card" aria-label="Portfolio contact details">
+                            <strong>Ziqin (Garry) Yuan</strong>
+                            <span>Electrical Engineering Student</span>
+                            <span>University of New South Wales</span>
+                            <a href="mailto:garryyuan1@gmail.com">garryyuan1@gmail.com</a>
+                            <a href="tel:+61451961015">+61 451 961 015</a>
+                            <span>Sydney, Australia</span>
+                            <span>Australian Citizen</span>
+                        </aside>
+                    </section>
+
+                    <section class="additional-section" aria-labelledby="additional-heading">
+                        <div class="section-heading">
+                            <h2 id="additional-heading">Audio Amplifier</h2>
+                            <p>A site-native project entry using the existing photo and report already in the website files.</p>
+                        </div>
+                        <article class="additional-build">
                             <img src="audio-amplifier.jpg" alt="Audio amplifier circuit assembled on a breadboard">
-                            <div class="project-feature-copy">
-                                <h2>Audio Amplifier</h2>
-                                <p>A small-signal audio amplifier built and tested on breadboard. This project focused on practical analog circuit assembly, component selection, gain staging, and validating the signal path on real hardware.</p>
-                                <p>The build sits inside the electrical engineering portfolio as a direct hardware project, with the report linked below for the submitted write-up.</p>
-                                <div class="project-feature-actions">
-                                    <a class="project-feature-link" href="audio-amplifier-report.odt" target="_blank" rel="noopener noreferrer">Open report</a>
-                                    <a class="project-feature-link" href="audio-amplifier.jpg" target="_blank" rel="noopener noreferrer">Open photo</a>
+                            <div class="additional-copy">
+                                <h3>Small-Signal Audio Amplifier</h3>
+                                <p>A small-signal audio amplifier built and tested on breadboard, focused on analog circuit assembly, component selection, gain staging, and validating the signal path on real hardware.</p>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="audio-amplifier-report.odt" target="_blank" rel="noopener noreferrer">Open report</a>
+                                    <a class="portfolio-button" href="audio-amplifier.jpg" target="_blank" rel="noopener noreferrer">Open photo</a>
                                 </div>
                             </div>
                         </article>
                     </section>
-                    <section class="portfolio-gallery" id="portfolio-gallery" aria-label="Portfolio pages">
-                        <div class="portfolio-loading">Loading portfolio pages…</div>
+
+                    <section class="portfolio-timeline" aria-label="Engineering projects">
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 1</p>
+                                    <div class="project-meta-list">
+                                        <span>Arduino Uno</span>
+                                        <span>IR sensor</span>
+                                        <span>MAX9814 microphone</span>
+                                        <span>KiCAD PCB</span>
+                                        <span>LTSpice</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-1-touchless-light-switch.jpg" alt="Touchless light switch breadboard with Arduino Uno and sensor module">
+                                    <span class="project-visual-label">Gesture + clap input</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Touchless Gesture-Controlled Light Switch</h2>
+                                    <p>A contactless light switch activated by hand gesture or clap, designed to reduce wear and physical contact in shared spaces while running as a self-contained 9V battery-powered unit.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Contactless light switching through gesture or clap input.</li>
+                                            <li>Self-contained system with no bench supply required.</li>
+                                            <li>Built around real sensor modules and relay control.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Sharp GP2Y0D810Z0F IR sensor with 2-10 cm detection.</li>
+                                            <li>MAX9814 microphone module for clap activation.</li>
+                                            <li>ATmega328P C++ firmware for debounce, timing, and relay control.</li>
+                                            <li>AZ34063U buck converter PCB stepping 9V down to 5V.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>60% false trigger reduction through filtering and reset timing.</li>
+                                            <li>3-9.5 cm adjustable detection range using a trimpot.</li>
+                                            <li>ERC/DRC clean KiCAD PCB with BOM generated.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 2</p>
+                                    <div class="project-meta-list">
+                                        <span>Inverting buck-boost</span>
+                                        <span>555 timer PWM</span>
+                                        <span>N-MOSFET</span>
+                                        <span>LM741 supply rail</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-2-negative-power-supply.jpg" alt="Negative power supply converter assembled on a breadboard">
+                                    <span class="project-visual-label">Negative rail generation</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>LM741 Negative Power Supply</h2>
+                                    <p>An inverting buck-boost converter that generates a stable -5V rail from a single positive supply, enabling dual-rail LM741 op-amp operation without an external signal generator.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Generate a stable negative rail from a positive DC input.</li>
+                                            <li>Support LM741 dual-rail operation under load.</li>
+                                            <li>Minimise ripple while keeping the build self-contained.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>1 mH inductor, N-MOSFET, 1N4148 diode, and 2200 uF output capacitor.</li>
+                                            <li>555 timer clock at approximately 25 kHz for PWM switching.</li>
+                                            <li>Full LTSpice transient simulation before breadboard testing.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>-5.0V stable output under 50 mA load.</li>
+                                            <li>Output ripple below 320 mV.</li>
+                                            <li>Powered LM741 amplifier produced a 6.3V peak-to-peak sine wave.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 3</p>
+                                    <div class="project-meta-list">
+                                        <span>Active filters</span>
+                                        <span>LM741</span>
+                                        <span>LTSpice AC analysis</span>
+                                        <span>KiCAD 2-layer PCB</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-3-analog-filter.jpg" alt="Analog active filter breadboard being tested on a lab bench">
+                                    <span class="project-visual-label">LP / HP / BP outputs</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Analog Filtering Circuit</h2>
+                                    <p>A single-input, three-output active filter producing low-pass, high-pass, and band-pass outputs simultaneously from a +/-12V supply.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>LP, HP, and BP active filter outputs from one input.</li>
+                                            <li>1.2 kHz target cutoff frequency.</li>
+                                            <li>Four simultaneous hard specifications to satisfy.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Second-order active LP/HP topology for 40 dB/decade rolloff.</li>
+                                            <li>MFB bandpass topology with independent frequency, Q, and gain control.</li>
+                                            <li>Unity-gain buffers on outputs for output impedance at or below 1 kOhm.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>1.2 kHz cutoff confirmed on oscilloscope.</li>
+                                            <li>Greater than 40 dB/decade rolloff against a 35 dB spec.</li>
+                                            <li>+/-1.5 dB passband ripple and ERC/DRC clean PCB.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 4</p>
+                                    <div class="project-meta-list">
+                                        <span>Current measurement</span>
+                                        <span>3-op-amp IA</span>
+                                        <span>0.1 Ohm shunt</span>
+                                        <span>Variable gain</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-4-current-amplifier.jpg" alt="Current measurement amplifier breadboard with shunt resistor and test leads">
+                                    <span class="project-visual-label">G = 10-100</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Current Measurement Amplifier</h2>
+                                    <p>A current-to-voltage amplifier with continuous variable gain from 10 to 100, designed for high-side or low-side measurement without rewiring.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Current-to-voltage amplifier for measurement applications.</li>
+                                            <li>Continuous gain control from 10 to 100.</li>
+                                            <li>Flat response target across 100 Hz to 10 kHz.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>0.1 Ohm shunt with 100 mV drop at 1A full scale.</li>
+                                            <li>3-op-amp instrumentation amplifier rejects common-mode voltage.</li>
+                                            <li>Single trimpot adjusts gain; output buffer uses 1 kOhm series resistor.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Gain adjustable from 10 to 100 with no component swap.</li>
+                                            <li>+/-3 dB response from 100 Hz to above 10 kHz.</li>
+                                            <li>High-side and low-side configurations validated.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 5</p>
+                                    <div class="project-meta-list">
+                                        <span>VCO</span>
+                                        <span>Integrator core</span>
+                                        <span>Schmitt trigger</span>
+                                        <span>NMOS switching</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-5-vco.jpg" alt="Voltage-controlled oscillator breadboard with wiring and probe clips">
+                                    <span class="project-visual-label">1V to 4V control</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Voltage-Controlled Oscillator</h2>
+                                    <p>A VCO mapping 1V to 1 kHz and 4V to 10 kHz, with dual triangle and square wave outputs inside a 0-5V rail.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Linear control-voltage-to-frequency mapping.</li>
+                                            <li>Triangle wave and square wave outputs.</li>
+                                            <li>Output constrained to the 0-5V supply rail.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Integrator op-amp and capacitor create linear ramp.</li>
+                                            <li>Schmitt trigger comparator hysteresis defines thresholds.</li>
+                                            <li>NMOS discharges the integrator capacitor at each threshold crossing.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>1-10 kHz output range met specification.</li>
+                                            <li>Linear monotonic mapping confirmed from 1V to 4V.</li>
+                                            <li>Both waveforms stayed within supply rail with stable operation.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Project 6</p>
+                                    <div class="project-meta-list">
+                                        <span>PAT testing</span>
+                                        <span>Seaward PAC3760 DL</span>
+                                        <span>AS/NZS 3760:2022</span>
+                                        <span>Compliance records</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="portfolio-images/project-6-pat-testing.jpg" alt="Seaward PAC3760 DL portable appliance tester">
+                                    <span class="project-visual-label">RPE / RISO / ILEAK</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Electrical Test & Tag</h2>
+                                    <p>Portable Appliance Testing using a Seaward PAC3760 DL, applying AS/NZS 3760:2022 safety checks to in-service equipment across residential and commercial sites.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Visual inspection, earth bond, insulation resistance, and leakage current tests.</li>
+                                            <li>Systematic electrical safety inspection of in-service equipment.</li>
+                                            <li>Specification-driven pass/fail validation.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>RPE earth resistance verifies chassis-to-earth continuity.</li>
+                                            <li>RISO applies 500 V DC to check insulation integrity.</li>
+                                            <li>ILEAK measures leakage current under normal operating voltage.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>AS/NZS 3760:2022 compliant test and tag records produced.</li>
+                                            <li>Unsafe appliances identified and quarantined before re-energisation.</li>
+                                            <li>Test registers and tag records maintained for audit readiness.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </article>
                     </section>
-                    <noscript>
-                        <div class="panel">JavaScript is required to render the portfolio pages inline. You can still <a href="Garry-Yuan-Engineering-Portfolio.pdf" target="_blank" rel="noopener noreferrer">open the PDF directly</a>.</div>
-                    </noscript>
+
+                    <section class="skills-section" aria-labelledby="skills-heading">
+                        <div class="section-heading">
+                            <h2 id="skills-heading">Technical Skills</h2>
+                            <p>Tools and methods used across the portfolio, grouped the same way as the original project document.</p>
+                        </div>
+                        <div class="skills-grid">
+                            <article class="skill-card">
+                                <h3>Hardware Design</h3>
+                                <ul>
+                                    <li>Analog circuit design</li>
+                                    <li>Op-amp topologies: LM741, LM324</li>
+                                    <li>Active filter design: LP, HP, BP</li>
+                                    <li>Instrumentation amplifiers</li>
+                                    <li>DC-DC power converters</li>
+                                </ul>
+                            </article>
+                            <article class="skill-card">
+                                <h3>PCB Design</h3>
+                                <ul>
+                                    <li>KiCAD schematic capture and ERC</li>
+                                    <li>PCB layout and DRC</li>
+                                    <li>2-layer FR-4 boards</li>
+                                    <li>Ground pour strategy</li>
+                                    <li>Gerber export and BOMs</li>
+                                </ul>
+                            </article>
+                            <article class="skill-card">
+                                <h3>Simulation</h3>
+                                <ul>
+                                    <li>LTSpice transient, AC, and parametric simulation</li>
+                                    <li>MATLAB and Simulink</li>
+                                    <li>ADS: Advanced Design System</li>
+                                    <li>Simulation-first methodology</li>
+                                </ul>
+                            </article>
+                            <article class="skill-card">
+                                <h3>Embedded & FPGA</h3>
+                                <ul>
+                                    <li>C/C++ on ATmega328P</li>
+                                    <li>ADC, PWM, GPIO, interrupts</li>
+                                    <li>Sensor interfacing</li>
+                                    <li>Verilog, SystemVerilog, VHDL</li>
+                                    <li>Vivado and Quartus</li>
+                                </ul>
+                            </article>
+                            <article class="skill-card">
+                                <h3>Programming</h3>
+                                <ul>
+                                    <li>C, C++, Python, MATLAB</li>
+                                    <li>MIPS Assembly</li>
+                                    <li>Git version control</li>
+                                    <li>Shell scripting</li>
+                                </ul>
+                            </article>
+                            <article class="skill-card">
+                                <h3>Field & Test</h3>
+                                <ul>
+                                    <li>LV electrical installation</li>
+                                    <li>Solar and inverter commissioning</li>
+                                    <li>Oscilloscope, bench PSU, DMM</li>
+                                    <li>AS/NZS wiring standards</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
+
+                    <p class="portfolio-footer-note">BE(Hons) Electrical Engineering / Computer Science, UNSW, 2022-2026.</p>
                 </div>
             </main>
         </div>
     </div>
     <script src="particles.js"></script>
-    <script type="module">
-        import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs";
-
-        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs";
-
-        const gallery = document.getElementById("portfolio-gallery");
-        const portfolioUrl = "Garry-Yuan-Engineering-Portfolio.pdf";
-        const renderedPages = new Map();
-        let pdfDocumentPromise;
-        let pageObserver;
-
-        function getPdfDocument() {
-            if (!pdfDocumentPromise) {
-                pdfDocumentPromise = pdfjsLib.getDocument(portfolioUrl).promise;
-            }
-            return pdfDocumentPromise;
-        }
-
-        function getRenderScale(page, shellWidth) {
-            const viewport = page.getViewport({ scale: 1 });
-            const width = Math.min(shellWidth || 980, 980);
-            return width / viewport.width;
-        }
-
-        async function renderPage(pageNumber, shell, placeholder, force = false) {
-            const pdf = await getPdfDocument();
-            const page = await pdf.getPage(pageNumber);
-            const shellWidth = shell.clientWidth || gallery.clientWidth || 980;
-            const scale = getRenderScale(page, shellWidth);
-            const roundedScale = Math.round(scale * 1000) / 1000;
-
-            if (!force && renderedPages.get(pageNumber) === roundedScale && shell.querySelector("canvas")) {
-                return;
-            }
-
-            const viewport = page.getViewport({ scale: roundedScale });
-            const outputScale = Math.min(window.devicePixelRatio || 1, 1.35);
-            const canvas = document.createElement("canvas");
-            const context = canvas.getContext("2d");
-            canvas.width = Math.floor(viewport.width * outputScale);
-            canvas.height = Math.floor(viewport.height * outputScale);
-            canvas.style.width = `${Math.floor(viewport.width)}px`;
-            canvas.style.height = `${Math.floor(viewport.height)}px`;
-            context.setTransform(outputScale, 0, 0, outputScale, 0, 0);
-
-            shell.style.minHeight = `${Math.floor(viewport.height)}px`;
-
-            await page.render({
-                canvasContext: context,
-                viewport
-            }).promise;
-
-            shell.innerHTML = "";
-            shell.appendChild(canvas);
-            renderedPages.set(pageNumber, roundedScale);
-            if (placeholder) {
-                placeholder.remove();
-            }
-        }
-
-        function buildPlaceholder(label) {
-            const placeholder = document.createElement("div");
-            placeholder.className = "portfolio-page-placeholder";
-            placeholder.textContent = label;
-            placeholder.style.minHeight = "420px";
-            return placeholder;
-        }
-
-        async function buildPortfolioShells() {
-            const pdf = await getPdfDocument();
-            gallery.innerHTML = "";
-
-            for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
-                const pageWrap = document.createElement("section");
-                pageWrap.className = "portfolio-page";
-
-                const shell = document.createElement("div");
-                shell.className = "portfolio-page-shell";
-                shell.dataset.pageNumber = String(pageNumber);
-
-                const placeholder = buildPlaceholder(`Loading page ${pageNumber}…`);
-                shell.appendChild(placeholder);
-                pageWrap.appendChild(shell);
-                gallery.appendChild(pageWrap);
-            }
-
-            const shells = [...gallery.querySelectorAll(".portfolio-page-shell")];
-            if (pageObserver) {
-                pageObserver.disconnect();
-            }
-
-            pageObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const shell = entry.target;
-                    const pageNumber = Number(shell.dataset.pageNumber);
-                    const placeholder = shell.querySelector(".portfolio-page-placeholder");
-                    renderPage(pageNumber, shell, placeholder).catch(console.error);
-                    pageObserver.unobserve(shell);
-                });
-            }, {
-                rootMargin: "300px 0px"
-            });
-
-            shells.forEach((shell) => pageObserver.observe(shell));
-
-            const firstShell = shells[0];
-            if (firstShell) {
-                renderPage(1, firstShell, firstShell.querySelector(".portfolio-page-placeholder"), true).catch(console.error);
-            }
-        }
-
-        async function renderPortfolio() {
-            try {
-                await buildPortfolioShells();
-            } catch (error) {
-                gallery.innerHTML = `<div class="panel">Could not render the portfolio inline. You can still <a href="${portfolioUrl}" target="_blank" rel="noopener noreferrer">open the PDF directly</a>.</div>`;
-                console.error(error);
-            }
-        }
-
-        renderPortfolio();
-        window.addEventListener("resize", () => {
-            clearTimeout(window.__portfolioResizeTimer);
-            window.__portfolioResizeTimer = setTimeout(async () => {
-                const shells = [...gallery.querySelectorAll(".portfolio-page-shell")];
-                for (const shell of shells) {
-                    const pageNumber = Number(shell.dataset.pageNumber);
-                    if (!renderedPages.has(pageNumber)) {
-                        continue;
-                    }
-                    await renderPage(pageNumber, shell, null, true);
-                }
-            }, 220);
-        });
-    </script>
 </body>
 </html>
