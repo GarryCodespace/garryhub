@@ -119,6 +119,95 @@
             background:
                 linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 247, 245, 0.92));
         }
+
+        .portfolio-projects {
+            display: grid;
+            gap: 24px;
+            margin-bottom: 34px;
+        }
+
+        .project-feature {
+            display: grid;
+            grid-template-columns: 360px minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.68);
+            box-shadow: 0 18px 40px rgba(116, 94, 124, 0.08);
+        }
+
+        html[data-theme="dark"] .project-feature {
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+        }
+
+        .project-feature img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 14px 28px rgba(116, 94, 124, 0.12);
+        }
+
+        html[data-theme="dark"] .project-feature img {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+        }
+
+        .project-feature-copy {
+            display: grid;
+            gap: 12px;
+        }
+
+        .project-feature-copy h2 {
+            font-size: 1.7rem;
+            line-height: 1.08;
+        }
+
+        .project-feature-copy p {
+            color: var(--muted);
+            font-size: 0.98rem;
+            font-family: "Instrument Sans", Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        .project-feature-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .project-feature-link {
+            display: inline-block;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.82);
+            font: 600 0.92rem "Instrument Sans", Arial, sans-serif;
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        html[data-theme="dark"] .project-feature-link {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .project-feature-link:hover {
+            transform: translateY(-1px);
+            border-color: rgba(169, 124, 184, 0.34);
+            background: rgba(255, 255, 255, 0.94);
+        }
+
+        html[data-theme="dark"] .project-feature-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 860px) {
+            .project-feature {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="portfolio-page-view">
@@ -157,6 +246,20 @@
 
             <main class="content">
                 <div class="portfolio-shell">
+                    <section class="portfolio-projects" aria-label="Featured projects">
+                        <article class="project-feature">
+                            <img src="audio-amplifier.jpg" alt="Audio amplifier circuit assembled on a breadboard">
+                            <div class="project-feature-copy">
+                                <h2>Audio Amplifier</h2>
+                                <p>A small-signal audio amplifier built and tested on breadboard. This project focused on practical analog circuit assembly, component selection, gain staging, and validating the signal path on real hardware.</p>
+                                <p>The build sits inside the electrical engineering portfolio as a direct hardware project, with the report linked below for the submitted write-up.</p>
+                                <div class="project-feature-actions">
+                                    <a class="project-feature-link" href="audio-amplifier-report.odt" target="_blank" rel="noopener noreferrer">Open report</a>
+                                    <a class="project-feature-link" href="audio-amplifier.jpg" target="_blank" rel="noopener noreferrer">Open photo</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
                     <section class="portfolio-gallery" id="portfolio-gallery" aria-label="Portfolio pages">
                         <div class="portfolio-loading">Loading portfolio pages…</div>
                     </section>
