@@ -203,6 +203,16 @@
             border-radius: 6px;
         }
 
+        .project-visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .project-visual-grid img {
+            aspect-ratio: 1 / 1;
+        }
+
         .project-visual-label {
             color: var(--muted);
             font: 700 0.74rem "Instrument Sans", Arial, sans-serif;
@@ -498,8 +508,11 @@
                                     </div>
                                 </div>
                                 <div class="project-visual">
-                                    <img src="portfolio-images/project-1-touchless-light-switch.jpg" alt="Touchless light switch breadboard with Arduino Uno and sensor module">
-                                    <span class="project-visual-label">Gesture + clap input</span>
+                                    <div class="project-visual-grid">
+                                        <img src="portfolio-images/project-1-touchless-light-switch.jpg" alt="Touchless light switch breadboard with Arduino Uno and sensor module">
+                                        <img src="portfolio-images/project-1-pcb-layout.jpg" alt="KiCAD PCB layout for the AZ34063U buck converter">
+                                    </div>
+                                    <span class="project-visual-label">Gesture input + PCB layout</span>
                                 </div>
                             </div>
                             <div class="project-body">
