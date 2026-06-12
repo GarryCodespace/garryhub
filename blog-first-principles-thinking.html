@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to Master First Principles Thinking: The Elon Musk Way">
+    <title>Garry Yuan | How to Master First Principles Thinking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body.blog-post-page {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(230, 214, 240, 0.3), transparent 25%),
+                linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        }
+
+        html[data-theme="dark"] body.blog-post-page {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(107, 63, 112, 0.17), transparent 25%),
+                linear-gradient(180deg, #171515 0%, var(--bg) 100%);
+        }
+
+        .blog-post-page .content {
+            max-width: 850px;
+            padding-top: 50px;
+        }
+
+        .post-shell {
+            width: min(100%, 720px);
+            margin: 0 auto;
+        }
+
+        .post-back {
+            display: inline-block;
+            color: var(--muted);
+            font: 700 0.82rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.06em;
+            margin-bottom: 26px;
+            text-transform: uppercase;
+        }
+
+        .post-back:hover {
+            color: var(--text);
+        }
+
+        .post-kicker {
+            color: var(--accent-strong);
+            font: 700 0.78rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .post-title {
+            font-size: clamp(2.25rem, 6vw, 4.6rem);
+            line-height: 0.98;
+            margin-bottom: 24px;
+        }
+
+        .post-content {
+            border-top: 1px solid var(--line);
+            padding-top: 26px;
+        }
+
+        .post-content h2 {
+            font-size: clamp(1.55rem, 3vw, 2.15rem);
+            line-height: 1.1;
+            margin: 34px 0 12px;
+        }
+
+        .post-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .post-content h3 {
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+            line-height: 1.18;
+            margin: 24px 0 8px;
+        }
+
+        .post-content p,
+        .post-content li {
+            font-size: clamp(1.03rem, 1.7vw, 1.14rem);
+            line-height: 1.68;
+        }
+
+        .post-content p {
+            margin-bottom: 18px;
+        }
+
+        .post-content ul {
+            display: grid;
+            gap: 8px;
+            margin: 10px 0 22px;
+            padding-left: 1.2rem;
+        }
+
+        .post-content li::marker {
+            color: var(--accent-strong);
+        }
+
+        .post-quote {
+            border-left: 3px solid var(--accent);
+            color: var(--text);
+            font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+            line-height: 1.35;
+            margin: 24px 0;
+            padding-left: 18px;
+        }
+
+        @media (max-width: 640px) {
+            .blog-post-page .content {
+                padding-top: 32px;
+            }
+        }
+    </style>
+</head>
+<body class="blog-post-page">
+    <canvas id="particle-canvas"></canvas>
+    <div class="page-shell">
+        <div class="page-frame">
+            <header class="site-nav">
+                <a class="site-brand" href="index.html">
+                    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+                        <circle cx="16" cy="16" r="15" />
+                        <path d="M7 12.25 12.1 9l3.9 5.15L20.7 11l4.3 5.75" />
+                        <path d="M7 20.25 12.1 17l3.9 5.15L20.7 19l4.3 5.75" />
+                    </svg>
+                    <span>Garry Yuan</span>
+                </a>
+                <nav class="nav-center" aria-label="Primary">
+                    <a href="index.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="blog.html" aria-current="page">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="nav-right" aria-label="Social links">
+                    <a class="icon-link" href="mailto:garryyuan1@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8-.25L12 11.72l7.2-5.22H4.8Zm14.7 11V8.24l-6.98 5.06a.9.9 0 0 1-1.04 0L4.5 8.24v9.26h15Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://x.com/im_garry_yuan?s=21" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.02 6.88L22 22h-5.53l-4.33-5.66L7.2 22H4.44l6.44-7.35L2 2h5.67l3.91 5.18L18.244 2Zm-.97 18.35h1.52L6.85 3.56H5.2l12.07 16.79Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://github.com/GarryCodespace" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.72-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.09 1.84 1.24 1.84 1.24 1.08 1.83 2.83 1.3 3.52.99.11-.79.42-1.3.75-1.6-2.66-.3-5.47-1.32-5.47-5.9 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.59-2.81 5.59-5.49 5.89.43.37.81 1.1.81 2.23v3.3c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://www.linkedin.com/in/garry-yuan-b27a31255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.25 2.25 0 1 0 5.3 7.5 2.25 2.25 0 0 0 5.25 3ZM20.45 13.02c0-3.46-1.85-5.07-4.32-5.07-1.99 0-2.88 1.1-3.38 1.87V8.5H9.38c.04.88 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.89-1.41 1.94-1.41 1.37 0 1.92 1.03 1.92 2.55V20h3.38v-6.98Z"></path></svg>
+                    </a>
+                </div>
+            </header>
+
+            <main class="content">
+                <article class="post-shell">
+                    <a class="post-back" href="blog.html">Back to Blog</a>
+                    <p class="post-kicker">Mental Models</p>
+                    <h1 class="post-title">How to Master First Principles Thinking: The Elon Musk Way</h1>
+
+                    <div class="post-content">
+                        <p>Most people get stuck solving problems because they follow the beaten path: "This is how it's always been done."</p>
+                        <p>They reason by analogy, copying what others did and hoping for similar results. It's comfortable, but it rarely leads to breakthroughs.</p>
+                        <p>The real game-changer is First Principles Thinking, the ability to break problems down to their most fundamental truths and rebuild from there. This mental model is one of the most powerful tools for innovation, learning, and problem-solving.</p>
+                        <p>Elon Musk has used it to revolutionize electric cars, space travel, and energy. Here's exactly how it works, with a famous real-world example, and how you can start using it today.</p>
+
+                        <h2>The Coke Can Rocket Tank Story</h2>
+                        <p>When SpaceX was developing early rocket technology, engineers were struggling to build a lightweight, pressurized tank that could handle extreme forces. The project was complex, expensive, and slow.</p>
+                        <p>Elon walked into the meeting and challenged them with a simple question:</p>
+                        <p class="post-quote">"Why are we trying to reinvent this from scratch?"</p>
+                        <p>He pointed to something everyday: a Coke can.</p>
+                        <p>A Coke can is incredibly thin and light. It's dirt cheap. It holds significant internal pressure without exploding. And billions are manufactured every year with extreme consistency.</p>
+                        <p>Instead of over-engineering a custom solution, why not start from what already works in the real world and adapt the core principles?</p>
+                        <p>The team shifted their approach. They generalized the problem: "How do we contain high pressure cheaply and reliably?" They used the Coke can as inspiration. The result? They succeeded in building better tanks faster and cheaper.</p>
+                        <p>This wasn't magic. It was first principles in action.</p>
+
+                        <h2>What Is First Principles Thinking?</h2>
+                        <p>First principles thinking means:</p>
+                        <ul>
+                            <li>Breaking a problem down to the most basic, undeniable truths, the "first principles".</li>
+                            <li>Ignoring assumptions, traditions, and "best practices".</li>
+                            <li>Rebuilding a solution from the ground up using only what is truly necessary.</li>
+                        </ul>
+                        <p>In contrast, most of us use reasoning by analogy. We look at what exists and make small tweaks. It's faster in the short term but limits creativity.</p>
+
+                        <h2>The Human Superpower: Generalization and Doubt</h2>
+                        <p>Humans have an incredible ability that makes first principles thinking possible: generalization across domains.</p>
+                        <p>Your brain can naturally connect:</p>
+                        <ul>
+                            <li>Rocket engineering to beverage cans.</li>
+                            <li>Battery production to commodity mining and chemistry.</li>
+                            <li>Software architecture to biological evolution.</li>
+                        </ul>
+                        <p>To learn or solve anything effectively, the first step is often to generalize the core problem. Strip away the surface details and ask:</p>
+                        <ul>
+                            <li>What is this really about?</li>
+                            <li>What fundamental need are we trying to satisfy?</li>
+                            <li>Where else in the world has this problem been solved well?</li>
+                        </ul>
+                        <p>Paired with healthy doubt, this becomes unstoppable. Constantly question why things exist the way they do. Why this material? Why this process? Why this cost? Many "obvious" solutions are just outdated assumptions waiting to be challenged.</p>
+
+                        <h2>How to Practice First Principles Thinking</h2>
+                        <p>Here's a practical framework you can use immediately:</p>
+                        <h3>Question Everything</h3>
+                        <p>Act like a curious child. Ask "Why?" repeatedly until you hit bedrock. Challenge every assumption in the current approach.</p>
+                        <h3>Break It Down to Fundamentals</h3>
+                        <p>Deconstruct the problem into its basic elements: physics, mathematics, core requirements, and raw materials. Ignore what's "normal" or "industry standard."</p>
+                        <h3>Generalize the Problem</h3>
+                        <p>Rephrase it in its simplest form. For the rocket tank, it wasn't "build a rocket tank." It was "contain high pressure with minimal weight and cost."</p>
+                        <h3>Hunt for Analogies Across Fields</h3>
+                        <p>Look for solutions in completely unrelated areas. Nature, consumer products, biology, history - anywhere. The best innovations often come from cross-pollination.</p>
+                        <h3>Rebuild from Scratch</h3>
+                        <p>Only use what you must. Innovate or improve everything else. This is where creative breakthroughs happen.</p>
+
+                        <h2>Start Small - Apply It Today</h2>
+                        <p>You don't need to build rockets to benefit from this.</p>
+                        <ul>
+                            <li>Stuck on a work project? Write down the absolute fundamentals on paper.</li>
+                            <li>Learning a new skill? Find three surprising analogies from other fields.</li>
+                            <li>Facing high costs or complexity? Reduce it to raw materials and physics.</li>
+                            <li>Making a big decision? Challenge every assumption you're carrying.</li>
+                        </ul>
+                        <p>The more you practice, the better you become at seeing opportunities others miss.</p>
+
+                        <h2>Final Thought</h2>
+                        <p>First principles thinking isn't just for billionaires or engineers. It's for anyone who wants to stop copying the world and start creating their own path.</p>
+                        <p>The world is full of outdated assumptions and inefficient traditions. Those who dare to question them and rebuild from first principles are the ones who shape the future.</p>
+                        <p>What problem have you been overcomplicating lately? Try breaking it down to first principles this week and see what changes.</p>
+                        <p>The ability to think this way is a superpower, and it's available to anyone willing to train it. Start today.</p>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+    <script src="particles.js"></script>
+</body>
+</html>

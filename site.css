@@ -176,7 +176,7 @@ html[data-theme="dark"] .brand-mark path {
 
 .nav-center {
     position: relative;
-    gap: 54px;
+    gap: clamp(24px, 4vw, 54px);
     padding-bottom: 18px;
 }
 
@@ -542,14 +542,22 @@ html[data-theme="dark"] .contact-icon {
     .nav-center {
         order: 3;
         width: 100%;
-        gap: 22px;
-        overflow-x: auto;
-        padding-bottom: 4px;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 72px;
+        row-gap: 8px;
+        overflow-x: visible;
+        padding-bottom: 8px;
+    }
+
+    .nav-center a {
+        width: 78px;
+        text-align: center;
     }
 
     .nav-center::after {
-        width: 240px;
-        bottom: 2px;
+        width: 100%;
+        bottom: 0;
     }
 
     .nav-right {

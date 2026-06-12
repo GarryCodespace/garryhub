@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog and notes by Garry Yuan">
+    <title>Garry Yuan | Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body.blog-page {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(230, 214, 240, 0.3), transparent 25%),
+                linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        }
+
+        html[data-theme="dark"] body.blog-page {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(107, 63, 112, 0.17), transparent 25%),
+                linear-gradient(180deg, #171515 0%, var(--bg) 100%);
+        }
+
+        .blog-page .content {
+            max-width: 860px;
+            padding-top: 58px;
+        }
+
+        .blog-shell {
+            display: grid;
+            gap: 34px;
+        }
+
+        .blog-hero {
+            padding-bottom: 26px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .blog-kicker {
+            color: var(--muted);
+            font: 700 0.78rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .blog-title {
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 0.98;
+            margin-bottom: 18px;
+        }
+
+        .blog-intro {
+            max-width: 650px;
+            color: var(--muted);
+            font: 500 clamp(1rem, 1.7vw, 1.12rem)/1.65 "Instrument Sans", Arial, sans-serif;
+        }
+
+        .blog-list {
+            display: grid;
+            grid-template-columns: 210px minmax(0, 1fr);
+            gap: 58px;
+            align-items: start;
+        }
+
+        .blog-categories {
+            display: grid;
+            gap: 34px;
+            padding-top: 8px;
+            position: sticky;
+            top: 24px;
+        }
+
+        .blog-category {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 18px;
+            align-items: center;
+            color: var(--muted);
+            font-size: clamp(1.45rem, 2.8vw, 1.75rem);
+            font-weight: 700;
+        }
+
+        .category-swatch {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(169, 124, 184, 0.48);
+            background: rgba(211, 194, 255, 0.58);
+        }
+
+        .category-swatch.reflection {
+            border-color: rgba(242, 170, 79, 0.62);
+            background: rgba(255, 220, 177, 0.62);
+        }
+
+        .category-swatch.article {
+            border-color: rgba(174, 132, 255, 0.58);
+            background: rgba(217, 196, 255, 0.62);
+        }
+
+        .blog-archive {
+            display: grid;
+            gap: 30px;
+        }
+
+        .blog-entry {
+            display: grid;
+            grid-template-columns: 140px minmax(0, 1fr);
+            gap: 44px;
+            align-items: start;
+        }
+
+        .blog-entry-date {
+            color: var(--muted);
+            font-size: clamp(1.3rem, 2.5vw, 1.62rem);
+            font-weight: 600;
+            line-height: 1.3;
+            padding-top: 8px;
+        }
+
+        .blog-entry-title {
+            display: inline;
+            color: var(--text);
+            font-size: clamp(1.65rem, 3.1vw, 2.1rem);
+            font-weight: 700;
+            line-height: 1.32;
+            padding: 6px 12px;
+            background: rgba(247, 248, 251, 0.88);
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            transition: color 160ms ease, background 160ms ease;
+        }
+
+        .blog-entry:hover .blog-entry-title {
+            color: var(--accent-strong);
+            background: rgba(247, 241, 249, 0.96);
+        }
+
+        html[data-theme="dark"] .blog-entry-title {
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        html[data-theme="dark"] .blog-entry:hover .blog-entry-title {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        @media (max-width: 640px) {
+            .blog-page .content {
+                padding-top: 32px;
+            }
+
+            .blog-list {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .blog-categories {
+                position: static;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .blog-category {
+                grid-template-columns: 18px 1fr;
+                gap: 8px;
+                font-size: 1.08rem;
+            }
+
+            .category-swatch {
+                width: 14px;
+                height: 14px;
+                border-width: 1px;
+            }
+
+            .blog-entry {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .blog-entry-date {
+                font-size: 1.08rem;
+                padding-top: 0;
+            }
+
+            .blog-entry-title {
+                font-size: 1.55rem;
+            }
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <canvas id="particle-canvas"></canvas>
+    <div class="page-shell">
+        <div class="page-frame">
+            <header class="site-nav">
+                <a class="site-brand" href="index.html">
+                    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+                        <circle cx="16" cy="16" r="15" />
+                        <path d="M7 12.25 12.1 9l3.9 5.15L20.7 11l4.3 5.75" />
+                        <path d="M7 20.25 12.1 17l3.9 5.15L20.7 19l4.3 5.75" />
+                    </svg>
+                    <span>Garry Yuan</span>
+                </a>
+                <nav class="nav-center" aria-label="Primary">
+                    <a href="index.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="blog.html" aria-current="page">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="nav-right" aria-label="Social links">
+                    <a class="icon-link" href="mailto:garryyuan1@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.8-.25L12 11.72l7.2-5.22H4.8Zm14.7 11V8.24l-6.98 5.06a.9.9 0 0 1-1.04 0L4.5 8.24v9.26h15Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://x.com/im_garry_yuan?s=21" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.02 6.88L22 22h-5.53l-4.33-5.66L7.2 22H4.44l6.44-7.35L2 2h5.67l3.91 5.18L18.244 2Zm-.97 18.35h1.52L6.85 3.56H5.2l12.07 16.79Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://github.com/GarryCodespace" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.72-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.09 1.84 1.24 1.84 1.24 1.08 1.83 2.83 1.3 3.52.99.11-.79.42-1.3.75-1.6-2.66-.3-5.47-1.32-5.47-5.9 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.59-2.81 5.59-5.49 5.89.43.37.81 1.1.81 2.23v3.3c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"></path></svg>
+                    </a>
+                    <a class="icon-link" href="https://www.linkedin.com/in/garry-yuan-b27a31255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.25 2.25 0 1 0 5.3 7.5 2.25 2.25 0 0 0 5.25 3ZM20.45 13.02c0-3.46-1.85-5.07-4.32-5.07-1.99 0-2.88 1.1-3.38 1.87V8.5H9.38c.04.88 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.89-1.41 1.94-1.41 1.37 0 1.92 1.03 1.92 2.55V20h3.38v-6.98Z"></path></svg>
+                    </a>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="blog-shell">
+                    <section class="blog-hero" aria-labelledby="blog-title">
+                        <p class="blog-kicker">Blog</p>
+                        <h1 class="blog-title" id="blog-title">Notes, ideas, and things worth thinking through.</h1>
+                        <p class="blog-intro">A place for longer thoughts on machine learning, engineering, systems, books, and whatever interesting thread is currently refusing to leave my head.</p>
+                    </section>
+
+                    <section class="blog-list" aria-label="Blog posts">
+                        <aside class="blog-categories" aria-label="Post categories">
+                            <div class="blog-category">
+                                <span class="category-swatch technical" aria-hidden="true"></span>
+                                <span>Technical</span>
+                            </div>
+                            <div class="blog-category">
+                                <span class="category-swatch reflection" aria-hidden="true"></span>
+                                <span>Reflection</span>
+                            </div>
+                            <div class="blog-category">
+                                <span class="category-swatch article" aria-hidden="true"></span>
+                                <span>Article</span>
+                            </div>
+                        </aside>
+
+                        <div class="blog-archive">
+                            <a class="blog-entry" href="blog-first-principles-thinking.html">
+                                <span class="blog-entry-date">05-23-2026</span>
+                                <span>
+                                    <span class="blog-entry-title">How to Master First Principles Thinking: The Elon Musk Way</span>
+                                </span>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="particles.js"></script>
+</body>
+</html>
