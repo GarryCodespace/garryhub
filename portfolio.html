@@ -291,6 +291,39 @@
             padding: 0 4px 4px;
         }
 
+        .software-visual {
+            min-height: 148px;
+            display: grid;
+            align-content: space-between;
+            gap: 18px;
+            padding: 16px;
+            border-radius: 6px;
+            background:
+                linear-gradient(135deg, rgba(169, 124, 184, 0.18), rgba(255, 255, 255, 0.32)),
+                radial-gradient(circle at 82% 18%, rgba(169, 124, 184, 0.18), transparent 36%);
+            border: 1px solid var(--line-soft);
+        }
+
+        html[data-theme="dark"] .software-visual {
+            background:
+                linear-gradient(135deg, rgba(239, 208, 246, 0.1), rgba(255, 255, 255, 0.025)),
+                radial-gradient(circle at 82% 18%, rgba(239, 208, 246, 0.12), transparent 36%);
+        }
+
+        .software-visual strong {
+            color: var(--text);
+            font: 800 1.42rem/1.05 "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0;
+            word-break: break-word;
+        }
+
+        .software-visual span {
+            color: var(--muted);
+            font: 700 0.74rem/1.35 "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .project-body {
             display: grid;
             gap: 20px;
@@ -606,6 +639,347 @@
                                 <div class="portfolio-actions">
                                     <a class="portfolio-button" href="coolaigames/index.html">Open project</a>
                                     <a class="portfolio-button" href="coolaigames/game.html?id=mistral-escape">Open game page</a>
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/Coolaigame" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 2</p>
+                                    <div class="project-meta-list">
+                                        <span>Computer vision</span>
+                                        <span>Python</span>
+                                        <span>FastAPI</span>
+                                        <span>Streamlit</span>
+                                        <span>OpenAI analysis</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>Emotion AI</strong>
+                                        <span>Vision + live analysis</span>
+                                    </div>
+                                    <span class="project-visual-label">GitHub project</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Emoticon Emergent</h2>
+                                    <p>An AI emotion-analysis workspace with live camera, screen recorder, body-language, stress, lie-detection, and OpenAI-assisted interpretation modules.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Realtime emotion and body-language analysis from camera or screen sources.</li>
+                                            <li>Multiple focused analyzers for stress, interview recordings, and vision workflows.</li>
+                                            <li>Login, payment, and database modules around the analysis tools.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Python app modules split across FastAPI, Streamlit-style pages, and backend services.</li>
+                                            <li>Dedicated live camera, video, screen recorder, and AI vision analyzer scripts.</li>
+                                            <li>OpenAI and ChatGPT interface layers for richer interpretation.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Large end-to-end prototype for multimodal AI analysis.</li>
+                                            <li>Clear separation between capture, analysis, authentication, and UI paths.</li>
+                                            <li>Strong showcase of practical computer-vision product thinking.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/Emoticon-emergent" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 3</p>
+                                    <div class="project-meta-list">
+                                        <span>FastAPI</span>
+                                        <span>PostgreSQL</span>
+                                        <span>Redis</span>
+                                        <span>Celery</span>
+                                        <span>AWS S3</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>xFood</strong>
+                                        <span>Community baking API</span>
+                                    </div>
+                                    <span class="project-visual-label">Backend platform</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>xFood Community Baking Platform</h2>
+                                    <p>A full backend API for a baking community platform, covering recipes, user profiles, image uploads, social posts, reviews, circles, comments, likes, and messaging.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Recipe sharing, baking posts, community circles, comments, likes, and reviews.</li>
+                                            <li>JWT authentication with user profiles, roles, and direct messaging.</li>
+                                            <li>Image upload pipeline for recipe and baking media.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>FastAPI service with SQLAlchemy models and Pydantic schemas.</li>
+                                            <li>PostgreSQL persistence, Redis caching, and Celery background jobs.</li>
+                                            <li>S3-backed file storage with image optimization and resizing.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Production-shaped API architecture with clear endpoint boundaries.</li>
+                                            <li>Docker and Railway deployment configuration included.</li>
+                                            <li>API surface broad enough to support a real social food product.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/xFood-Web" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 4</p>
+                                    <div class="project-meta-list">
+                                        <span>React</span>
+                                        <span>TypeScript</span>
+                                        <span>Vite</span>
+                                        <span>Supabase</span>
+                                        <span>Tailwind CSS</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>Prompt CAD</strong>
+                                        <span>Design tool prototype</span>
+                                    </div>
+                                    <span class="project-visual-label">Web app</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Prompt Craft CAD</h2>
+                                    <p>A Vite and React web application prototype for a prompt-driven CAD/design workflow, built with a modern TypeScript frontend stack and Supabase project structure.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Prompt-oriented interface for shaping design/CAD ideas through a web app.</li>
+                                            <li>Modern component system using shadcn-ui conventions.</li>
+                                            <li>Frontend-first product prototype suitable for fast iteration.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>React and TypeScript app running on Vite.</li>
+                                            <li>Tailwind CSS styling with component configuration.</li>
+                                            <li>Supabase folder included for backend/data integration.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Good example of product prototyping with a modern frontend toolchain.</li>
+                                            <li>Readable project structure with `src`, `public`, and Supabase boundaries.</li>
+                                            <li>Shows comfort moving from idea prompt to interactive interface.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/prompt-craft-cad" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 5</p>
+                                    <div class="project-meta-list">
+                                        <span>Machine learning</span>
+                                        <span>PyTorch</span>
+                                        <span>NumPy</span>
+                                        <span>EDA</span>
+                                        <span>Transformers</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>ML Lab</strong>
+                                        <span>From scratch to PyTorch</span>
+                                    </div>
+                                    <span class="project-visual-label">Learning repo</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Machine Learning Project Lab</h2>
+                                    <p>A hands-on machine-learning repository that moves from beginner classifiers and regression into neural networks, image classification, embeddings, and a tiny transformer language model.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Titanic survival, house-price regression, spam detection, and EDA notebooks.</li>
+                                            <li>MNIST and CIFAR-10 image classification experiments.</li>
+                                            <li>Embeddings text classifier and tiny transformer language model.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>NumPy implementations for linear and logistic regression from scratch.</li>
+                                            <li>PyTorch training loops for neural networks and CNNs.</li>
+                                            <li>Runnable project folders with shared requirements and smoke-test commands.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Broad ML foundation across tabular, text, and image data.</li>
+                                            <li>Clear progression from fundamentals to deeper architectures.</li>
+                                            <li>Useful proof of independent learning and rebuild-from-first-principles practice.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/Machine_learning" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 6</p>
+                                    <div class="project-meta-list">
+                                        <span>Football analytics</span>
+                                        <span>Feature engineering</span>
+                                        <span>Leakage-safe ML</span>
+                                        <span>Python package</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>Soccer ML</strong>
+                                        <span>Outcome prediction</span>
+                                    </div>
+                                    <span class="project-visual-label">Sports analytics</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>Soccer Match Predictor</h2>
+                                    <p>A machine-learning starter system for predicting home win, draw, or away win using rolling team form, match stats, market odds, and modern football metrics.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Predict match outcomes using historical results and optional xG-style features.</li>
+                                            <li>Support home, draw, and away classes for upcoming fixtures.</li>
+                                            <li>Document practical free and paid football data sources.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Leakage-safe feature generation that only uses matches before each fixture date.</li>
+                                            <li>Scripts for fetching Football-Data.co.uk baselines, training, and prediction.</li>
+                                            <li>Package structure with `src`, `scripts`, examples, and docs.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Research-backed structure for sports prediction experiments.</li>
+                                            <li>Extensible schema for xG, xA, PPDA, shots, possession, and odds.</li>
+                                            <li>Good example of careful ML evaluation thinking.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/Soccer_predictor_ml" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 7</p>
+                                    <div class="project-meta-list">
+                                        <span>PyTorch</span>
+                                        <span>MOSFET I-V data</span>
+                                        <span>SPICE modelling</span>
+                                        <span>Robustness tests</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="software-visual">
+                                        <strong>ANN MOSFET</strong>
+                                        <span>EE + ML crossover</span>
+                                    </div>
+                                    <span class="project-visual-label">Surrogate model</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>ANN for MOSFET SPICE Model Extraction</h2>
+                                    <p>A PyTorch neural-network surrogate that learns MOSFET electrical behaviour from simulated I-V sweeps as a first step toward SPICE model extraction.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Generate synthetic MOSFET drain-current sweeps with device variation.</li>
+                                            <li>Predict drain current from bias and geometry inputs.</li>
+                                            <li>Explore model robustness under noisy measurement-like inputs.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Compact Shichman-Hodges style data generator.</li>
+                                            <li>PyTorch ANN trained on `log10(|Id| + eps)` targets.</li>
+                                            <li>Scripts for data generation, training, prediction, and robustness evaluation.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Strong bridge between electrical engineering and applied ML.</li>
+                                            <li>Testable package layout with docs and pipeline tests.</li>
+                                            <li>Portfolio-ready example of simulation-to-model experimentation.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="https://github.com/GarryCodespace/ANN-Mosfet" target="_blank" rel="noopener noreferrer">GitHub</a>
                                 </div>
                             </div>
                         </article>
