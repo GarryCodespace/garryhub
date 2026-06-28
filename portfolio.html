@@ -113,41 +113,57 @@
         .portfolio-switch {
             display: flex;
             justify-content: center;
-            padding: 2px 0 0;
+            padding: 4px 0 2px;
         }
 
         .portfolio-switch-control {
             position: relative;
             display: inline-grid;
             grid-template-columns: 1fr 1fr;
-            min-width: min(100%, 360px);
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.62);
+            width: min(100%, 268px);
+            padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-radius: 999px;
+            background: rgba(226, 224, 224, 0.68);
             overflow: hidden;
-            box-shadow: 0 14px 30px rgba(116, 94, 124, 0.07);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                0 16px 34px rgba(116, 94, 124, 0.08);
         }
 
         html[data-theme="dark"] .portfolio-switch-control {
-            background: rgba(255, 255, 255, 0.035);
-            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 18px 34px rgba(0, 0, 0, 0.22);
         }
 
         .portfolio-switch-control::before {
             content: "";
             position: absolute;
-            top: 5px;
-            bottom: 5px;
-            left: 5px;
-            width: calc(50% - 5px);
-            border-radius: 6px;
-            background: rgba(169, 124, 184, 0.16);
+            top: 4px;
+            bottom: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.85) inset,
+                0 10px 22px rgba(116, 94, 124, 0.14);
             transform: translateX(0);
-            transition: transform 180ms ease;
+            transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .portfolio-switch-control[data-active="hardware"]::before {
             transform: translateX(100%);
+        }
+
+        html[data-theme="dark"] .portfolio-switch-control::before {
+            background: rgba(236, 230, 230, 0.92);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.4) inset,
+                0 10px 22px rgba(0, 0, 0, 0.24);
         }
 
         .portfolio-tab {
@@ -158,22 +174,28 @@
             background: transparent;
             color: var(--muted);
             cursor: pointer;
-            font: 800 0.88rem "Instrument Sans", Arial, sans-serif;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font: 800 1rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0;
+            text-transform: none;
+            transition: color 220ms ease;
         }
 
         .portfolio-tab + .portfolio-tab {
-            border-left: 1px solid var(--line);
+            border-left: 0;
         }
 
         .portfolio-tab[aria-selected="true"] {
-            color: var(--text);
+            color: #050505;
+        }
+
+        html[data-theme="dark"] .portfolio-tab[aria-selected="true"] {
+            color: #151316;
         }
 
         .portfolio-tab:focus-visible {
             outline: 2px solid var(--accent-strong);
-            outline-offset: -4px;
+            outline-offset: -6px;
+            border-radius: 999px;
         }
 
         .portfolio-group[hidden] {
@@ -560,26 +582,6 @@
 
             <main class="content">
                 <div class="portfolio-shell">
-                    <section class="portfolio-hero" aria-labelledby="portfolio-title">
-                        <div>
-                            <p class="portfolio-kicker">Electrical Engineering Portfolio</p>
-                            <h1 class="portfolio-title" id="portfolio-title">Software and hardware, built and tested.</h1>
-                            <div class="portfolio-actions">
-                                <a class="portfolio-button" href="Garry-Yuan-Engineering-Portfolio.pdf" target="_blank" rel="noopener noreferrer">Open original PDF</a>
-                                <a class="portfolio-button" href="Garry-Yuan-Resume.pdf" target="_blank" rel="noopener noreferrer">Open resume</a>
-                            </div>
-                        </div>
-                        <aside class="portfolio-contact-card" aria-label="Portfolio contact details">
-                            <strong>Ziqin (Garry) Yuan</strong>
-                            <span>Electrical Engineering Student</span>
-                            <span>University of New South Wales</span>
-                            <a href="mailto:garryyuan1@gmail.com">garryyuan1@gmail.com</a>
-                            <a href="tel:+61451961015">+61 451 961 015</a>
-                            <span>Sydney, Australia</span>
-                            <span>Australian Citizen</span>
-                        </aside>
-                    </section>
-
                     <div class="portfolio-switch" aria-label="Project category">
                         <div class="portfolio-switch-control" data-active="software" role="tablist" aria-label="Project category">
                             <button class="portfolio-tab" id="software-tab" type="button" role="tab" aria-selected="true" aria-controls="software-projects" data-project-tab="software">Software</button>
