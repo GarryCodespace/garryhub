@@ -110,6 +110,76 @@
             margin-top: 8px;
         }
 
+        .portfolio-switch {
+            display: flex;
+            justify-content: center;
+            padding: 2px 0 0;
+        }
+
+        .portfolio-switch-control {
+            position: relative;
+            display: inline-grid;
+            grid-template-columns: 1fr 1fr;
+            min-width: min(100%, 360px);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.62);
+            overflow: hidden;
+            box-shadow: 0 14px 30px rgba(116, 94, 124, 0.07);
+        }
+
+        html[data-theme="dark"] .portfolio-switch-control {
+            background: rgba(255, 255, 255, 0.035);
+            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-switch-control::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            left: 5px;
+            width: calc(50% - 5px);
+            border-radius: 6px;
+            background: rgba(169, 124, 184, 0.16);
+            transform: translateX(0);
+            transition: transform 180ms ease;
+        }
+
+        .portfolio-switch-control[data-active="hardware"]::before {
+            transform: translateX(100%);
+        }
+
+        .portfolio-tab {
+            position: relative;
+            z-index: 1;
+            min-height: 48px;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            font: 800 0.88rem "Instrument Sans", Arial, sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .portfolio-tab + .portfolio-tab {
+            border-left: 1px solid var(--line);
+        }
+
+        .portfolio-tab[aria-selected="true"] {
+            color: var(--text);
+        }
+
+        .portfolio-tab:focus-visible {
+            outline: 2px solid var(--accent-strong);
+            outline-offset: -4px;
+        }
+
+        .portfolio-group[hidden] {
+            display: none;
+        }
+
         .portfolio-button {
             display: inline-flex;
             align-items: center;
@@ -460,7 +530,7 @@
                     <section class="portfolio-hero" aria-labelledby="portfolio-title">
                         <div>
                             <p class="portfolio-kicker">Electrical Engineering Portfolio</p>
-                            <h1 class="portfolio-title" id="portfolio-title">Hands-on hardware, built and tested.</h1>
+                            <h1 class="portfolio-title" id="portfolio-title">Software and hardware, built and tested.</h1>
                             <div class="portfolio-actions">
                                 <a class="portfolio-button" href="Garry-Yuan-Engineering-Portfolio.pdf" target="_blank" rel="noopener noreferrer">Open original PDF</a>
                                 <a class="portfolio-button" href="Garry-Yuan-Resume.pdf" target="_blank" rel="noopener noreferrer">Open resume</a>
@@ -477,6 +547,71 @@
                         </aside>
                     </section>
 
+                    <div class="portfolio-switch" aria-label="Project category">
+                        <div class="portfolio-switch-control" data-active="software" role="tablist" aria-label="Project category">
+                            <button class="portfolio-tab" id="software-tab" type="button" role="tab" aria-selected="true" aria-controls="software-projects" data-project-tab="software">Software</button>
+                            <button class="portfolio-tab" id="hardware-tab" type="button" role="tab" aria-selected="false" aria-controls="hardware-projects" data-project-tab="hardware">Hardware</button>
+                        </div>
+                    </div>
+
+                    <section class="portfolio-group portfolio-timeline" id="software-projects" role="tabpanel" aria-labelledby="software-tab" data-project-panel="software">
+                        <article class="project-card">
+                            <div class="project-index">
+                                <div>
+                                    <p class="project-number">Software 1</p>
+                                    <div class="project-meta-list">
+                                        <span>Browser games</span>
+                                        <span>JavaScript</span>
+                                        <span>Three.js</span>
+                                        <span>Mistral AI chat</span>
+                                        <span>PWA manifest</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <img src="coolaigames/assets/logo-coolaigame.svg" alt="CoolAIGame logo">
+                                    <span class="project-visual-label">AI game platform</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <div class="project-heading">
+                                    <h2>CoolAIGame</h2>
+                                    <p>A browser-native game platform with a searchable game library, instant game launcher, progression stats, leaderboards, and an AI assistant experience.</p>
+                                </div>
+                                <div class="project-columns">
+                                    <section class="project-section">
+                                        <h3>What</h3>
+                                        <ul>
+                                            <li>Game discovery and launch flow for zero-download browser play.</li>
+                                            <li>Progression surfaces for level, XP, coins, and play streaks.</li>
+                                            <li>Dedicated game pages with screenshots, controls, settings, and sharing.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>How</h3>
+                                        <ul>
+                                            <li>Static HTML/CSS/JavaScript front end with reusable registry-driven game data.</li>
+                                            <li>Three.js powered animated landing canvas.</li>
+                                            <li>Mistral-backed chat endpoint for the in-page assistant.</li>
+                                        </ul>
+                                    </section>
+                                    <section class="project-section">
+                                        <h3>Result</h3>
+                                        <ul>
+                                            <li>Installable PWA structure with manifest and service worker.</li>
+                                            <li>Responsive library, search, filters, and recent-play sections.</li>
+                                            <li>Playable iframe-based game shell with fullscreen and related-game flows.</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a class="portfolio-button" href="coolaigames/index.html">Open project</a>
+                                    <a class="portfolio-button" href="coolaigames/game.html?id=mistral-escape">Open game page</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+
+                    <div class="portfolio-group" id="hardware-projects" role="tabpanel" aria-labelledby="hardware-tab" data-project-panel="hardware" hidden>
                     <section class="additional-section" aria-labelledby="additional-heading">
                         <div class="section-heading">
                             <h2 id="additional-heading">Audio Amplifier</h2>
@@ -801,6 +936,7 @@
                             </div>
                         </article>
                     </section>
+                    </div>
 
                     <section class="skills-section" aria-labelledby="skills-heading">
                         <div class="section-heading">
@@ -874,5 +1010,26 @@
         </div>
     </div>
     <script src="particles.js"></script>
+    <script>
+        const portfolioTabs = document.querySelectorAll("[data-project-tab]");
+        const portfolioPanels = document.querySelectorAll("[data-project-panel]");
+        const portfolioSwitch = document.querySelector(".portfolio-switch-control");
+
+        portfolioTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                const selectedCategory = tab.dataset.projectTab;
+
+                portfolioTabs.forEach((item) => {
+                    item.setAttribute("aria-selected", String(item === tab));
+                });
+
+                portfolioPanels.forEach((panel) => {
+                    panel.hidden = panel.dataset.projectPanel !== selectedCategory;
+                });
+
+                portfolioSwitch.dataset.active = selectedCategory;
+            });
+        });
+    </script>
 </body>
 </html>
